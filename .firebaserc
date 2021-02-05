@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "jbot-gpryii": {
+      "hosting": {
+        "angular-ems": [
+          "jbot-gpryii"
+        ]
+      }
+    }
+  }
+}

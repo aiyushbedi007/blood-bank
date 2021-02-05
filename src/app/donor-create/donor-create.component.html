@@ -1,0 +1,19 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">New Enquiry</h3>
+      
+      <div class="form-group">
+        <label for="title">Enquiry title:</label>
+        <input type="text" [(ngModel)]="enquiryDetails.title" class="form-control" placeholder="Title" required>  
+  
+        <label for="snippet">Course Name:</label>
+        <input type="text" [(ngModel)]="enquiryDetails.snippet" class="form-control" placeholder="Course Name" required>
+  
+        <label for="body">Your Enquiry:</label>
+        <input type="text" [(ngModel)]="enquiryDetails.body" class="form-control" placeholder="Enquiry" required>
+  
+        <button (click)="addEnquiry()">Create Enquiry</button>
+      </div>
+  
+    </div>
+  </div>
