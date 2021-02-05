@@ -1,55 +1,51 @@
 <div class="container custom-container-2">
 
-    <!-- Show it when there is no Donor -->
-    <div class="no-data text-center" *ngIf="Donor.length == 0">
-      <p>There is no Donor added yet!</p>
-      <button routerLink="/create-donor">Add donor</button>
-    </div>
-  
-    <!-- Donors list table, it hides when there is no Donor -->
-    <div *ngIf="Donor.length !== 0">
-      <h3 class="mb-3 text-center">Enquiries</h3>
-
-      <form class="search">
-        <input [(ngModel)]="searchText" placeholder="Search.." name="searchText" class="form-control mb-4">
-      </form>
-
-      <div class="col-md-12">
-        <table id="location-table" class="table table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col">S.No.</th>
-              <th scope="col">Title</th>
-              <th scope="col">Course Name</th>
-              <th scope="col">Donor</th>
-              <ng-container *ngIf="role === 'admin'">
-                <th scope="col">Email</th>
-                <th scope="col" colspan="2">Action</th>
-              </ng-container>
-            </tr>
-          </thead>
-          <tbody id='myTable'>
-            <tr *ngFor="let donor of Donor | filter: {title: searchText, snippet:searchText, body: searchText, raisedby: searchText}; let i = index">
-              <ng-container *ngIf="role === 'admin' || donor.raisedby === email">
-                <td>{{i+1}}</td>
-                <td>{{donor.title}}</td>
-                <td>{{donor.snippet}}</td>
-                <td>{{donor.body}}</td>
-                <ng-container *ngIf="role === 'admin'">
-                  <td>{{donor.raisedby}}</td>
-                  <td>
-                    <span class="edit" routerLink="/donor-edit/{{donor._id}}">Edit</span>
-                  </td>
-                  <td>
-                    <span class="delete" (click)="deleteDonor(donor._id)">Delete</span>
-                  </td>
-                </ng-container>
-              </ng-container>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  
-    </div>
-  
+  <!-- Show it when there is no Donor -->
+  <div class="no-data text-center" *ngIf="Donor.length == 0">
+    <p>There is no Donor added yet!</p>
+    <button routerLink="/create-donor">Add Donor</button>
   </div>
+
+  <!-- Donors list table, it hides when there is no Donor -->
+  <div *ngIf="Donor.length !== 0">
+    <h3 class="mb-3 text-center">Enquiries</h3>
+
+    <form class="search">
+      <input [(ngModel)]="searchText" placeholder="Search.." name="searchText" class="form-control mb-4">
+    </form>
+
+    <div class="col-md-12">
+      <table id="location-table" class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Donor Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <ng-container *ngIf="role === 'admin'">
+              <th scope="col" colspan="2">Action</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody id='myTable'>
+          <tr *ngFor="let donor of Donor | filter: {title: searchText, snippet:searchText, body: searchText, raisedby: searchText}; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{donor.bloodGroup}}</td>
+            <td>{{donor.name}}</td>
+            <td>{{donor.address}}</td>
+            <td>{{donor.email}}</td>
+            <ng-container *ngIf="role === 'admin'">
+              <td>
+                <span class="edit" routerLink="/donor-edit/{{donor._id}}">Edit</span>
+              </td>
+              <td>
+                <span class="delete" (click)="deleteDonor(donor._id)">Delete</span>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

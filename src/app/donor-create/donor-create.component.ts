@@ -13,7 +13,7 @@ export class DonorCreateComponent implements OnInit {
 
   isLoggedIn = false;
 
-  @Input() donorDetails = { title: '', snippet: '', body: '', raisedby: ''};
+  @Input() donorDetails = { bloodGroup: '', name: '', address: '', email: ''};
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -29,8 +29,6 @@ export class DonorCreateComponent implements OnInit {
   }
 
   addDonor(): void {
-      const user = this.tokenStorageService.getUser();
-      this.donorDetails.raisedby = user.user.email;
       this.restApi.createDonor(this.donorDetails).subscribe((data: {}) => {
       this.router.navigate(['/donor-list']);
       });
