@@ -15,7 +15,8 @@ export class DonorListComponent implements OnInit {
   isLoggedIn = false;
   role: string;
   email: string;
-  public searchText: string;
+  public bloodGroup: string;
+  groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
   constructor(
     private tokenStorageService: TokenStorageService,

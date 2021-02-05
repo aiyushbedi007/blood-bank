@@ -23,7 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 // Filter
-import { FilterPipe } from './filter.pipe';
+import { TableFilterPipe } from './filter.pipe';
 import { RouterModule } from '@angular/router';
 
 
@@ -36,7 +36,7 @@ import { RouterModule } from '@angular/router';
     DonorListComponent,
     LoginComponent,
     RegisterComponent,
-    FilterPipe,
+    TableFilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -142,6 +142,19 @@ form{
   background: #ffffff;
 }
 
+.form-group{
+  width: 360px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.form-group.search{
+  padding: 0px;
+}
+
 form.search{
   padding: 0px;
 }

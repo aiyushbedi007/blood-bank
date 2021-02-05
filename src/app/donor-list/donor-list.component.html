@@ -10,9 +10,13 @@
   <div *ngIf="Donor.length !== 0">
     <h3 class="mb-3 text-center">Donors</h3>
 
-    <form class="search">
-      <input [(ngModel)]="searchText" placeholder="Search.." name="searchText" class="form-control mb-4">
-    </form>
+    <div class="form-group search">
+      <strong>Blood Group</strong>
+      <select class="form-control mb-4" [(ngModel)]="bloodGroup">
+        <option></option>      
+        <option *ngFor="let g of groups" [ngValue]="g">{{g}}</option>
+      </select>
+    </div>
 
     <div class="col-md-12">
       <table id="location-table" class="table table-bordered table-striped table-hover">
@@ -29,7 +33,7 @@
           </tr>
         </thead>
         <tbody id='myTable'>
-          <tr *ngFor="let donor of Donor | filter: {bloodGroup: searchText, dname:searchText, address: searchText, email: searchText}; let i = index">
+          <tr *ngFor="let donor of Donor | tableFilter: bloodGroup; let i = index">
             <td>{{i+1}}</td>
             <td>{{donor.bloodGroup}}</td>
             <td>{{donor.dname}}</td>
