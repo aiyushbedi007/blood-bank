@@ -123,10 +123,6 @@
               "devServerTarget": "angular-ems:serve:production"
             }
           }
-        },
-        "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {}
         }
       }
     }
