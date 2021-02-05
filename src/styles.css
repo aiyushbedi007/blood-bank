@@ -68,7 +68,7 @@ h3{
 }
 
 /* index styles */
-.enquirys a:hover h3{
+.donors a:hover h3{
   color: #dc143c;
 }
 
@@ -85,7 +85,7 @@ h3{
 
 
 /* create styles */
-.create-enquiry form{
+.create-donor form{
   max-width: 400px;
   margin: 0 auto;
   padding: 30px;
@@ -94,8 +94,8 @@ h3{
   background: #ffffff;
 
 }
-.create-enquiry input,
-.create-enquiry textarea{
+.create-donor input,
+.create-donor textarea{
   display: block;
   width: 100%;
   margin: 10px 0;
@@ -104,14 +104,14 @@ h3{
   border: 1px solid #ddd;
   font-size: 1em;    
 }
-.create-enquiry label{
+.create-donor label{
   display: block;
   margin: 20px 0 10px;
 }
 textarea{
   height: 120px;
 }
-.create-enquiry button{
+.create-donor button{
   margin-top: 30px;
   border-radius: 36px;
   background: #dc143c;

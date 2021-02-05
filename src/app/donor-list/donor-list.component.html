@@ -1,13 +1,13 @@
 <div class="container custom-container-2">
 
-    <!-- Show it when there is no enquiry -->
-    <div class="no-data text-center" *ngIf="Enquiry.length == 0">
-      <p>There is no Enquiry added yet!</p>
-      <button routerLink="/create-enquiry">Add Enquiry</button>
+    <!-- Show it when there is no Donor -->
+    <div class="no-data text-center" *ngIf="Donor.length == 0">
+      <p>There is no Donor added yet!</p>
+      <button routerLink="/create-donor">Add donor</button>
     </div>
   
-    <!-- Enquirys list table, it hides when there is no Enquiry -->
-    <div *ngIf="Enquiry.length !== 0">
+    <!-- Donors list table, it hides when there is no Donor -->
+    <div *ngIf="Donor.length !== 0">
       <h3 class="mb-3 text-center">Enquiries</h3>
 
       <form class="search">
@@ -21,7 +21,7 @@
               <th scope="col">S.No.</th>
               <th scope="col">Title</th>
               <th scope="col">Course Name</th>
-              <th scope="col">Enquiry</th>
+              <th scope="col">Donor</th>
               <ng-container *ngIf="role === 'admin'">
                 <th scope="col">Email</th>
                 <th scope="col" colspan="2">Action</th>
@@ -29,19 +29,19 @@
             </tr>
           </thead>
           <tbody id='myTable'>
-            <tr *ngFor="let enquiry of Enquiry | filter: {title: searchText, snippet:searchText, body: searchText, raisedby: searchText}; let i = index">
-              <ng-container *ngIf="role === 'admin' || enquiry.raisedby === email">
+            <tr *ngFor="let donor of Donor | filter: {title: searchText, snippet:searchText, body: searchText, raisedby: searchText}; let i = index">
+              <ng-container *ngIf="role === 'admin' || donor.raisedby === email">
                 <td>{{i+1}}</td>
-                <td>{{enquiry.title}}</td>
-                <td>{{enquiry.snippet}}</td>
-                <td>{{enquiry.body}}</td>
+                <td>{{donor.title}}</td>
+                <td>{{donor.snippet}}</td>
+                <td>{{donor.body}}</td>
                 <ng-container *ngIf="role === 'admin'">
-                  <td>{{enquiry.raisedby}}</td>
+                  <td>{{donor.raisedby}}</td>
                   <td>
-                    <span class="edit" routerLink="/enquiry-edit/{{enquiry._id}}">Edit</span>
+                    <span class="edit" routerLink="/donor-edit/{{donor._id}}">Edit</span>
                   </td>
                   <td>
-                    <span class="delete" (click)="deleteEnquiry(enquiry._id)">Delete</span>
+                    <span class="delete" (click)="deleteDonor(donor._id)">Delete</span>
                   </td>
                 </ng-container>
               </ng-container>
