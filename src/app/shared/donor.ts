@@ -1,7 +1,7 @@
 export class Donor {
     id: string;
     bloodGroup: string;
-    name: string;
+    dname: string;
     address: string;
     email: string;
  }

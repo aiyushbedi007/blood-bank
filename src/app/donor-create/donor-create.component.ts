@@ -12,8 +12,9 @@ import { TokenStorageService } from '../_services/token-storage.service';
 export class DonorCreateComponent implements OnInit {
 
   isLoggedIn = false;
+  groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
-  @Input() donorDetails = { bloodGroup: '', name: '', address: '', email: ''};
+  @Input() donorDetails = { bloodGroup: '', dname: '', address: '', email: ''};
 
   constructor(
     private tokenStorageService: TokenStorageService,

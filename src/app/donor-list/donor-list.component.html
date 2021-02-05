@@ -8,7 +8,7 @@
 
   <!-- Donors list table, it hides when there is no Donor -->
   <div *ngIf="Donor.length !== 0">
-    <h3 class="mb-3 text-center">Enquiries</h3>
+    <h3 class="mb-3 text-center">Donors</h3>
 
     <form class="search">
       <input [(ngModel)]="searchText" placeholder="Search.." name="searchText" class="form-control mb-4">
@@ -29,10 +29,10 @@
           </tr>
         </thead>
         <tbody id='myTable'>
-          <tr *ngFor="let donor of Donor | filter: {title: searchText, snippet:searchText, body: searchText, raisedby: searchText}; let i = index">
+          <tr *ngFor="let donor of Donor | filter: {bloodGroup: searchText, dname:searchText, address: searchText, email: searchText}; let i = index">
             <td>{{i+1}}</td>
             <td>{{donor.bloodGroup}}</td>
-            <td>{{donor.name}}</td>
+            <td>{{donor.dname}}</td>
             <td>{{donor.address}}</td>
             <td>{{donor.email}}</td>
             <ng-container *ngIf="role === 'admin'">

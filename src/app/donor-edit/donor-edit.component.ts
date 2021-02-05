@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DonorEditComponent implements OnInit {
 
   id = this.actRoute.snapshot.params.id;
-  donorData: any = {};
+  donorDetails: any = {};
+  groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
   constructor(
     public restApi: RestApiService,
@@ -21,14 +22,14 @@ export class DonorEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.restApi.getDonor(this.id).subscribe((data: {}) => {
-      this.donorData = data;
+      this.donorDetails = data;
     });
   }
 
   // Update Donor data
   updateDonor(): void {
     if (window.confirm('Are you sure, you want to update?')){
-      this.restApi.updateDonor(this.id, this.donorData).subscribe(data => {
+      this.restApi.updateDonor(this.id, this.donorDetails).subscribe(data => {
         this.router.navigate(['/donor-list']);
       });
     }
