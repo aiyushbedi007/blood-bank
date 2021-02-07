@@ -28,7 +28,7 @@ export class DonorEditComponent implements OnInit {
   }
 
   // Update Donor data
-  updateDonor(): void {
+  onSubmit(): void {
     if (window.confirm('Are you sure, you want to update?')){
       this.restApi.updateDonor(this.id, this.donorDetails).subscribe(data => {
         this.isSuccessful = true;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -30,7 +30,7 @@ export class DonorCreateComponent implements OnInit {
     }
   }
 
-  addDonor(): void {
+  onSubmit(): void {
       this.restApi.createDonor(this.donorDetails).subscribe(
         (data: {}) => {
         this.isSuccessful = true;

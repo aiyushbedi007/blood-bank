@@ -1,7 +1,7 @@
 <div class="container custom-container">
     <div class="col-md-12">
       <h3 class="mb-3 text-center">New Donor</h3>
-      <form *ngIf="!isSuccessful" class="form-group" name="donorDetails" (ngSubmit)="f.donorDetails.valid && addDonor()" #f="ngForm" novalidate>
+      <form *ngIf="!isSuccessful" class="form-group" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <label for="bloodGroup">Blood Group:</label>
         <select [(ngModel)]="donorDetails.bloodGroup" class="form-control" name="bloodGroup" #bloodGroup="ngModel" required>
           <option *ngFor="let g of groups" [ngValue]="g">{{g}}</option>
@@ -29,7 +29,7 @@
           <div *ngIf="email.errors.email">Email must be a valid email address</div>
         </div>
 
-        <button (click)="addDonor()">Create Donor</button>
+        <button>Create Donor</button>
       </form>
     </div>
 </div>

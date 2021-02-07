@@ -3,7 +3,7 @@
       
       <h3 class="mb-3 text-center">Update Donor</h3>
   
-      <form *ngIf="!isSuccessful" class="form-group" name="donorDetails" (ngSubmit)="f.donorDetails.valid && updateDonor()" #f="ngForm" novalidate>
+      <form *ngIf="!isSuccessful" class="form-group" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <label for="bloodGroup">Blood Group:</label>
         <select [(ngModel)]="donorDetails.bloodGroup" class="form-control" name="bloodGroup" #bloodGroup="ngModel" required>
           <option *ngFor="let g of groups" [ngValue]="g">{{g}}</option>
@@ -31,7 +31,7 @@
           <div *ngIf="email.errors.email">Email must be a valid email address</div>
         </div>
         
-        <button (click)="updateDonor()">Update Donor</button>
+        <button>Update Donor</button>
       </form>  
     </div>
   </div>
