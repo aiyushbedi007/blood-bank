@@ -32,6 +32,7 @@ export class DonorListComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     else {
+      // Get the Logged in User
       const user = this.tokenStorageService.getUser();
       this.role = user.user.role;
       this.email = user.user.email;

@@ -7,11 +7,15 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  // Form Inputs
   form: any = {
     uname: null,
     email: null,
     password: null
   };
+
+  // Error Messages
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';

@@ -24,6 +24,7 @@ export class DonorCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Check if user is logged in
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);
@@ -31,6 +32,7 @@ export class DonorCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // Create a new Donor
       this.restApi.createDonor(this.donorDetails).subscribe(
         (data: {}) => {
         this.isSuccessful = true;

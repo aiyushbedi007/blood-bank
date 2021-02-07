@@ -12,6 +12,7 @@ const TOKEN_HEADER_KEY = 'x-access-token';
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private token: TokenStorageService) { }
 
+  // Intercept all Requests and verify the JWT token
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq = req;
     const token = this.token.getToken();

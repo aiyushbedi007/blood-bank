@@ -53,7 +53,7 @@ export class RestApiService {
     );
   }
 
-  // HttpClient API put() method => Update donor
+  // HttpClient API patch() method => Update donor
   updateDonor(id: string, donor: any): Observable<Donor> {
     return this.http.patch<Donor>(this.apiURL + '/donors/' + id, JSON.stringify(donor), this.httpOptions)
     .pipe(

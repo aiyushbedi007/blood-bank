@@ -22,6 +22,7 @@ export class DonorEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Fetch Donor Details
     this.restApi.getDonor(this.id).subscribe((data: {}) => {
       this.donorDetails = data;
     });
