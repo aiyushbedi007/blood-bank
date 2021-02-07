@@ -9,21 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 // Forms module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { DonorCreateComponent } from './donor-create/donor-create.component';
-import { DonorEditComponent } from './donor-edit/donor-edit.component';
-import { DonorListComponent } from './donor-list/donor-list.component';
 import { HomeComponent } from './home/home.component';
 
 // Auth Interceptor
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 // Filter
-import { TableFilterPipe } from './filter.pipe';
 import { RouterModule } from '@angular/router';
 
 
@@ -31,18 +25,13 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     HomeComponent,
-    DonorCreateComponent,
-    DonorEditComponent,
-    DonorListComponent,
-    LoginComponent,
-    RegisterComponent,
-    TableFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
   ],
   providers: [authInterceptorProviders],

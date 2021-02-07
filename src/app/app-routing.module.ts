@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { DonorCreateComponent } from './donor-create/donor-create.component';
-import { DonorEditComponent } from './donor-edit/donor-edit.component';
-import { DonorListComponent } from './donor-list/donor-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'create-donor', component: DonorCreateComponent },
-  { path: 'donor-list', component: DonorListComponent },
-  { path: 'donor-edit/:id', component: DonorEditComponent },
+  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule) },
+  { path: 'create-donor', loadChildren: () => import('./donor-create/donor-create.module').then(m => m.DonorCreateModule)},
+  { path: 'donor-list', loadChildren: () => import('./donor-list/donor-list.module').then(m => m.DonorListModule) },
+  { path: 'donor-edit/:id', loadChildren: () => import('./donor-edit/donor-edit.module').then(m => m.DonorEditModule) },
 ];
 
 @NgModule({
