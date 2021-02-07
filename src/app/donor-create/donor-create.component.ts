@@ -14,7 +14,8 @@ export class DonorCreateComponent implements OnInit {
   isLoggedIn = false;
   groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
-  @Input() donorDetails = { bloodGroup: '', dname: '', address: '', email: ''};
+  donorDetails = { bloodGroup: '', dname: '', address: '', email: ''};
+  isSuccessful = false;
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -30,8 +31,15 @@ export class DonorCreateComponent implements OnInit {
   }
 
   addDonor(): void {
-      this.restApi.createDonor(this.donorDetails).subscribe((data: {}) => {
-      this.router.navigate(['/donor-list']);
+      this.restApi.createDonor(this.donorDetails).subscribe(
+        (data: {}) => {
+        this.isSuccessful = true;
+        this.router.navigate(['/donor-list']);
+      },
+      err => {
+        const errors = err.error.errors;
+        // Handling Errors;
+        console.log(err.error.errors);
       });
   }
 }

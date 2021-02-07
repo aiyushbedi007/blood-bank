@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
+  emailError = '';
+  passwordError = '';
   roles: string[] = [];
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
@@ -44,7 +46,12 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       err => {
-        this.errorMessage = err.error.message;
+        const errors = err.error.errors;
+        // Handling Errors;
+        console.log(err.error.errors);
+        this.emailError = errors.email;
+        this.passwordError = errors.password;
+        this.errorMessage = this.emailError + ' ' + this.passwordError;
         this.isLoginFailed = true;
       }
     );

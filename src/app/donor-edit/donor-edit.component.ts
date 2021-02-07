@@ -11,6 +11,7 @@ export class DonorEditComponent implements OnInit {
 
   id = this.actRoute.snapshot.params.id;
   donorDetails: any = {};
+  isSuccessful = false;
   groups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 
   constructor(
@@ -30,7 +31,13 @@ export class DonorEditComponent implements OnInit {
   updateDonor(): void {
     if (window.confirm('Are you sure, you want to update?')){
       this.restApi.updateDonor(this.id, this.donorDetails).subscribe(data => {
+        this.isSuccessful = true;
         this.router.navigate(['/donor-list']);
+      },
+      err => {
+        const errors = err.error.errors;
+        // Handling Errors;
+        console.log(err.error.errors);
       });
     }
   }

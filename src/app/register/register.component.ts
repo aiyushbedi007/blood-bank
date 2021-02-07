@@ -15,6 +15,9 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  emailError = '';
+  passwordError = '';
+
 
   constructor(private authService: AuthService) { }
 
@@ -33,7 +36,12 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = false;
       },
       err => {
-        this.errorMessage = err.error.message;
+        const errors = err.error.errors;
+        // Handling Errors;
+        console.log(err.error.errors);
+        this.emailError = errors.email;
+        this.passwordError = errors.password;
+        this.errorMessage = this.emailError + ' ' + this.passwordError;
         this.isSignUpFailed = true;
       }
     );
